@@ -18,8 +18,10 @@
 		<maven.du.plugin.wildfly.version>4.0.2</maven.du.plugin.wildfly.version>
 		<restcomm.jain.slee.version>2.9.147</restcomm.jain.slee.version>
 		<!-- Mobicents Diameter Components Versions -->
-		<restcomm.diameter.jdiameter.version>1.7.1-123</restcomm.diameter.jdiameter.version>
-		<restcomm.diameter.mux.version>1.7.1-123</restcomm.diameter.mux.version>
+		<!--restcomm.diameter.jdiameter.version>1.7.1-123</restcomm.diameter.jdiameter.version>
+		<restcomm.diameter.mux.version>1.7.1-123</restcomm.diameter.mux.version-->
+		<restcomm.diameter.jdiameter.version>1.7.1-157</restcomm.diameter.jdiameter.version>
+		<restcomm.diameter.mux.version>1.7.1-157</restcomm.diameter.mux.version>
 		<!-- BeConnect updated versions for GMLC -->
 		<be-connect.ra-du.slg.version>7.2.1</be-connect.ra-du.slg.version>
 		<be-connect.ra-du.slh.version>7.2.1</be-connect.ra-du.slh.version>

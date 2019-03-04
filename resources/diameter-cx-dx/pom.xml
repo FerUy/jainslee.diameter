@@ -19,7 +19,7 @@
 		<module>ratype</module>
 		<module>events</module>
 		<module>ra</module>
-		<module>testsuite</module>
+		<!--module>testsuite</module-->
 		<module>du</module>
 	</modules>
 

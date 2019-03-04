@@ -22,7 +22,7 @@
 
 package org.mobicents.slee.resource.diameter.sh.client;
 
-import static org.jdiameter.client.impl.helpers.Parameters.MessageTimeOut;
+import static org.jdiameter.server.impl.helpers.Parameters.MessageTimeOut;
 
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -65,6 +65,7 @@ import net.java.slee.resource.diameter.sh.events.SubscribeNotificationsAnswer;
 import net.java.slee.resource.diameter.sh.events.UserDataAnswer;
 
 import org.jboss.mx.util.MBeanServerLocator;
+import org.jboss.system.Service;
 import org.jdiameter.api.Answer;
 import org.jdiameter.api.ApplicationId;
 import org.jdiameter.api.AvpDataException;
@@ -582,11 +583,12 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
    * @see org.mobicents.slee.resource.diameter.base.handlers.BaseSessionCreationListener#fireEvent(java.lang.String, org.jdiameter.api.Request, org.jdiameter.api.Answer)
    */
   public void fireEvent(String sessionId, Message message) {
+
     DiameterMessage event = (DiameterMessage) createEvent(message);
 
     FireableEventType eventId = eventIdCache.getEventId(eventLookup, message);
 
-    this.fireEvent(event, getActivityHandle(sessionId), eventId, null, true, message.isRequest());
+    boolean result = this.fireEvent(event, getActivityHandle(sessionId), eventId, null, true, message.isRequest());
   }
 
   /**
@@ -657,17 +659,23 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     boolean isRequest = message.isRequest();
 
     switch (commandCode) {
-    case PushNotificationRequestImpl.commandCode: // PNR/PNA
-      return isRequest ? new PushNotificationRequestImpl(message) : new PushNotificationAnswerImpl(message);
-    case ProfileUpdateRequestImpl.commandCode: // PUR/PUA
-      return isRequest ? new ProfileUpdateRequestImpl(message) : new ProfileUpdateAnswerImpl(message);
-    case SubscribeNotificationsRequestImpl.commandCode: // SNR/SNA
-      return isRequest ? new SubscribeNotificationsRequestImpl(message) : new SubscribeNotificationsAnswerImpl(message);
-    case net.java.slee.resource.diameter.sh.events.UserDataRequest.commandCode: // UDR/UDA
-      return isRequest ? new UserDataRequestImpl(message) : new UserDataAnswerImpl(message);
+      case PushNotificationRequestImpl.commandCode: // PNR/PNA
+        return isRequest ? new PushNotificationRequestImpl(message) : new PushNotificationAnswerImpl(message);
+      case ProfileUpdateRequestImpl.commandCode: // PUR/PUA
+        return isRequest ? new ProfileUpdateRequestImpl(message) : new ProfileUpdateAnswerImpl(message);
+      case SubscribeNotificationsRequestImpl.commandCode: // SNR/SNA
+        return isRequest ? new SubscribeNotificationsRequestImpl(message) : new SubscribeNotificationsAnswerImpl(message);
+      case net.java.slee.resource.diameter.sh.events.UserDataRequest.commandCode: // UDR/UDA
+        //return isRequest ? new UserDataRequestImpl(message) : new UserDataAnswerImpl(message);
+        if (isRequest)
+          return new UserDataRequestImpl(message);
+        else {
+          UserDataAnswer uda = new UserDataAnswerImpl(message);
+          return uda;
+        }
 
-    default:
-      return new ExtensionDiameterMessageImpl(message);
+      default:
+        return new ExtensionDiameterMessageImpl(message);
     }
   }
 
