@@ -262,8 +262,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     }
 
     try {
-      if(tracer.isInfoEnabled()) {
-        tracer.info("Activating Diameter ShClient RA Entity");
+      if(tracer.isFineEnabled()) {
+        tracer.fine("Activating Diameter ShClient RA Entity");
       }
 
       this.diameterMultiplexerObjectName = new ObjectName("diameter.mobicents:service=DiameterStackMultiplexer");
@@ -273,14 +273,14 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
       if (ManagementFactory.getPlatformMBeanServer().isRegistered(this.diameterMultiplexerObjectName)) {
         // trying to get via MBeanServer
         object = ManagementFactory.getPlatformMBeanServer().invoke(this.diameterMultiplexerObjectName, "getMultiplexerMBean", new Object[]{}, new String[]{});
-        if (tracer.isInfoEnabled()) {
-          tracer.info("Trying to get via Platform MBeanServer: " + this.diameterMultiplexerObjectName + ", object: " + object);
+        if (tracer.isFineEnabled()) {
+          tracer.fine("Trying to get via Platform MBeanServer: " + this.diameterMultiplexerObjectName + ", object: " + object);
         }
       } else {
         // trying to get via locateJBoss
         object = MBeanServerLocator.locateJBoss().invoke(this.diameterMultiplexerObjectName, "getMultiplexerMBean", new Object[]{}, new String[]{});
-        if (tracer.isInfoEnabled()) {
-          tracer.info("Trying to get via JBoss MBeanServer: " + this.diameterMultiplexerObjectName + ", object: " + object);
+        if (tracer.isFineEnabled()) {
+          tracer.fine("Trying to get via JBoss MBeanServer: " + this.diameterMultiplexerObjectName + ", object: " + object);
         }
       }
 
@@ -316,7 +316,7 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   }
 
   public void raStopping() {
-    if(tracer.isFineEnabled()) {
+    if (tracer.isFineEnabled()) {
       tracer.fine("Diameter ShClient RA :: raStopping.");
     }
 
@@ -330,8 +330,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     //    synchronized (this.activities) {
     //      for (ActivityHandle activityHandle : activities.keySet()) {
     //        try {
-    //          if(tracer.isInfoEnabled()) {
-    //            tracer.info("Ending activity [" + activityHandle + "]");
+    //          if(tracer.isFineEnabled()) {
+    //            tracer.fine("Ending activity [" + activityHandle + "]");
     //          }
     //
     //          activities.get(activityHandle).endActivity();
@@ -342,8 +342,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     //      }
     //    }
 
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: entityDeactivating completed.");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: entityDeactivating completed.");
     }
   }
 
@@ -357,8 +357,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     //    }
     activities = null;
 
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: INACTIVE completed.");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: INACTIVE completed.");
     }
   }
 
@@ -435,8 +435,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   // Mandatory callback methods ------------------------------------------
 
   public void queryLiveness(ActivityHandle handle) {
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: queryLiveness :: handle[" + handle + "].");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: queryLiveness :: handle[" + handle + "].");
     }
 
     DiameterActivityImpl activity = (DiameterActivityImpl) activities.get((DiameterActivityHandle)handle);
@@ -480,8 +480,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   // Optional callback methods -------------------------------------------
 
   public void eventProcessingFailed(ActivityHandle handle, FireableEventType eventType, Object event, Address address, ReceivableService service, int flags, FailureReason reason) {
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: eventProcessingFailed :: handle[" + handle + "], eventType[" + eventType + "], event[" + event + "], address[" + address + "], flags[" + flags + "], reason[" + reason + "].");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: eventProcessingFailed :: handle[" + handle + "], eventType[" + eventType + "], event[" + event + "], address[" + address + "], flags[" + flags + "], reason[" + reason + "].");
     }
     if(!(handle instanceof DiameterActivityHandle)) {
         return;
@@ -491,8 +491,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   }
 
   public void eventProcessingSuccessful(ActivityHandle handle, FireableEventType eventType, Object event, Address address, ReceivableService service, int flags) {
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: eventProcessingSuccessful :: handle[" + handle + "], eventType[" + eventType + "], event[" + event + "], address[" + address + "], flags[" + flags + "].");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: eventProcessingSuccessful :: handle[" + handle + "], eventType[" + eventType + "], event[" + event + "], address[" + address + "], flags[" + flags + "].");
     }
     if(!(handle instanceof DiameterActivityHandle)) {
       return;
@@ -524,7 +524,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   }
 
   public void activityEnded(ActivityHandle handle) {
-    tracer.info("Diameter ShClient RA :: activityEnded :: handle[" + handle + ".");
+    if(tracer.isFineEnabled())
+      tracer.fine("Diameter ShClient RA :: activityEnded :: handle[" + handle + ".");
 
     if(this.activities != null) {
       synchronized (this.activities) {
@@ -714,8 +715,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
       // Put it into our activites map
       activities.put(activity.getActivityHandle(), activity);
 
-      if(tracer.isInfoEnabled()) {
-        tracer.info("Activity started [" + activity.getActivityHandle() + "]");
+      if(tracer.isFineEnabled()) {
+        tracer.fine("Activity started [" + activity.getActivityHandle() + "]");
       }
     }
     catch (Exception e) {
@@ -747,8 +748,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     this.stack = this.diameterMux.getStack();
     this.messageTimeout = stack.getMetaData().getConfiguration().getLongValue(MessageTimeOut.ordinal(), (Long) MessageTimeOut.defValue());
 
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: Successfully initialized stack.");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: Successfully initialized stack.");
     }
   }
   private void initActivitiesMgmt() {
@@ -779,8 +780,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     }
 
     try {
-      if(tracer.isInfoEnabled()) {
-        tracer.info("Received Message Result-Code: " + ans.getResultCode().getUnsigned32());
+      if(tracer.isFineEnabled()) {
+        tracer.fine("Received Message Result-Code: " + ans.getResultCode().getUnsigned32());
       }
     }
     catch (AvpDataException ignore) {
@@ -789,8 +790,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
   }
 
   public void timeoutExpired(Request req) {
-    if(tracer.isInfoEnabled()) {
-      tracer.info("Diameter ShClient RA :: timeoutExpired :: " + "Request[" + req + "].");
+    if(tracer.isFineEnabled()) {
+      tracer.fine("Diameter ShClient RA :: timeoutExpired :: " + "Request[" + req + "].");
     }
 
     try {
@@ -873,8 +874,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
     }
 
     public void stateChanged(Enum oldState, Enum newState) {
-      if(tracer.isInfoEnabled()) {
-        tracer.info("Diameter Sh ClientSessionFactory :: stateChanged :: oldState[" + oldState + "], newState[" + newState + "]");
+      if(tracer.isFineEnabled()) {
+        tracer.fine("Diameter Sh ClientSessionFactory :: stateChanged :: oldState[" + oldState + "], newState[" + newState + "]");
       }
     }
 
@@ -883,8 +884,8 @@ public class DiameterShClientResourceAdaptor implements ResourceAdaptor, Diamete
      */
     @Override
     public void stateChanged(AppSession source, Enum oldState, Enum newState) {
-      if(tracer.isInfoEnabled()) {
-        tracer.info("Diameter Sh ClientSessionFactory :: stateChanged :: source["+ source +"] :: oldState[" + oldState + "], newState[" + newState + "]");
+      if(tracer.isFineEnabled()) {
+        tracer.fine("Diameter Sh ClientSessionFactory :: stateChanged :: source["+ source +"] :: oldState[" + oldState + "], newState[" + newState + "]");
       }
       //		DiameterActivityHandle dah = getActivityHandle(source.getSessionId());
       //		Object activity = getActivity(dah);
