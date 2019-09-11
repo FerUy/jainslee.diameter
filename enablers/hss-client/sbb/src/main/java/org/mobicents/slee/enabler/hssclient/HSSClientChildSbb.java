@@ -478,7 +478,7 @@ public abstract class HSSClientChildSbb implements Sbb, HSSClientChild {
       userIdentityAvp.setPublicIdentity(publicIdentity);
     }
     else if (msisdn != null && msisdn.length > 0) {
-      userIdentityAvp.setMsisdn(msisdn);
+      userIdentityAvp.setMsisdn(new String(msisdn));
     }
 
     return userIdentityAvp;
@@ -501,7 +501,7 @@ public abstract class HSSClientChildSbb implements Sbb, HSSClientChild {
     }
 
     String publicIdentity = null;
-    byte[] msisdn = null;
+    String msisdn = null;
     if(uIdAvp != null) {
       publicIdentity = uIdAvp.getPublicIdentity();
       msisdn = uIdAvp.getMsisdn();
@@ -513,7 +513,7 @@ public abstract class HSSClientChildSbb implements Sbb, HSSClientChild {
       tracer.warning("User-Identity AVP missing in Diameter Sh Message.");
     }
 
-    return new String[]{publicIdentity, String.valueOf(msisdn)};
+    return new String[]{publicIdentity, msisdn};
   }
 
   private ShClientActivity getShClientActivity() throws IOException {

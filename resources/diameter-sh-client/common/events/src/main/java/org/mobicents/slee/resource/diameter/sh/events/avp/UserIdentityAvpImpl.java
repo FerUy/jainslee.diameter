@@ -56,8 +56,8 @@ public class UserIdentityAvpImpl extends GroupedAvpImpl implements UserIdentityA
    * (non-Javadoc)
    * @see net.java.slee.resource.diameter.sh.events.avp.UserIdentityAvp#getMsisdn()
    */
-  public byte[] getMsisdn() {
-    return getAvpAsOctetString(DiameterShAvpCodes.MSISDN, DiameterShAvpCodes.SH_VENDOR_ID);
+  public String getMsisdn() {
+    return getAvpAsUTF8String(DiameterShAvpCodes.MSISDN, DiameterShAvpCodes.SH_VENDOR_ID);
   }
 
   /* 
@@ -85,9 +85,9 @@ public class UserIdentityAvpImpl extends GroupedAvpImpl implements UserIdentityA
 
   /* 
    * (non-Javadoc)
-   * @see net.java.slee.resource.diameter.sh.events.avp.UserIdentityAvp#setMsisdn(byte[])
+   * @see net.java.slee.resource.diameter.sh.events.avp.UserIdentityAvp#setMsisdn(java.lang.String)
    */
-  public void setMsisdn(byte[] msisdn) {
+  public void setMsisdn(String msisdn) {
     addAvp(DiameterShAvpCodes.MSISDN, DiameterShAvpCodes.SH_VENDOR_ID, msisdn);
   }
 
