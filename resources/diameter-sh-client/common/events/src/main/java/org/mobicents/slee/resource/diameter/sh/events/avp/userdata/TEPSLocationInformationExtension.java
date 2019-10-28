@@ -60,15 +60,12 @@ import java.util.List;
 })
 public class TEPSLocationInformationExtension implements EPSLocationInformationExtension {
 
-
     @XmlElement(name = "VisitedPLMNID")
     protected Integer visitedPLMNID;
     @XmlElement(name = "LocalTimeZone")
     protected TLocalTimeZone localTimeZone;
     @XmlElement(name = "Extension")
     protected TEPSLocationInformationExtension2 extension;
-    @XmlAnyElement(lax = true)
-    protected List<Object> any;
 
     /* (non-Javadoc)
      * @see org.mobicents.slee.resource.diameter.sh.events.avp.userdata.EPSLocationInformationExtension#getVisitedPLMNID()

@@ -97,12 +97,12 @@ public interface PSLocationInformationExtension2 {
     /**
      * Sets the value of the extension property.
      *
-     * @param value
+     * @param extension
      *     allowed object is
      *     {@link TExtension }
      *
      */
-    public abstract void setExtension(Extension value);
+    public abstract void setExtension(Extension extension);
 
     /**
      * Gets the value of the ratType property.

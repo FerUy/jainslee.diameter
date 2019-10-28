@@ -1,57 +1,57 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2011, Red Hat, Inc. and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
-
 package net.java.slee.resource.diameter.sh.events.avp.userdata;
 
-import org.mobicents.slee.resource.diameter.sh.events.avp.userdata.TEPSLocationInformationExtension;
-import org.mobicents.slee.resource.diameter.sh.events.avp.userdata.TUserCSGInformation;
+import org.mobicents.slee.resource.diameter.sh.events.avp.userdata.TExtension;
 import org.w3c.dom.Element;
+
 import java.util.List;
 
 /**
- * <p>Interface for tEPSLocationInformation complex type.
+ * <p>Interface for tSh-5GSLocationInformation complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- *  <xs:complexType name="tEPSLocationInformation">
- * 		<xs:sequence>
+ *  <xs:complexType name="tSh-5GSLocationInformation">
+ * 	    <xs:sequence>
+ * 		    <xs:element name="NRCellGlobalId" type="tNRCellGlobalId" minOccurs="0"/>
  * 			<xs:element name="E-UTRANCellGlobalId" type="tE-UTRANCellGlobalId" minOccurs="0"/>
  * 			<xs:element name="TrackingAreaId" type="tTrackingAreaId" minOccurs="0"/>
  * 			<xs:element name="GeographicalInformation" type="tGeographicalInformation" minOccurs="0"/>
- * 			<xs:element name="GeodeticInformation" type="tGeodeticInformation" minOccurs="0"/>
- * 			<xs:element name="MMEName" type="tString" minOccurs="0"/>
+ * 			<xs:element name="AMFAddress" type="tString" minOccurs="0"/>
+ * 			<xs:element name="SMSFAddress" type="tString" minOccurs="0"/>
  * 			<xs:element name="CurrentLocationRetrieved" type="tBool" minOccurs="0"/>
  * 			<xs:element name="AgeOfLocationInformation" type="tAgeOfLocationInformation" minOccurs="0"/>
- * 			<xs:element name="UserCSGInformation" type="tUserCSGInformation" minOccurs="0"/>
- * 			<xs:element name="Extension" type="tEPSLocationInformation-Extension" minOccurs="0"/>
- * 			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+ * 			<xs:element name="VisitedPLMNID" type="tVisitedPLMNID" minOccurs="0"/>
+ * 			<xs:element name="LocalTimeZone" type="tLocalTimeZone" minOccurs="0"/>
+ * 			<xs:element name="RATtype" type="tRATtype" minOccurs="0"/>
+ * 			<xs:element name="Extension" type="tExtension" minOccurs="0"/>
  * 		</xs:sequence>
- * 	</xs:complexType>
- * </pre>
+ *   </xs:complexType>
+ * 	</pre>
  *
  * 	@author <a href="mailto:fernando.mendioroz@gmail.com"> Fernando Mendioroz </a>
  */
-public interface EPSLocationInformation {
+public interface Sh5GSLocationInformation {
+
+    /**
+     * Gets the value of the NRCellGlobalId property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public abstract String getNRCellGlobalId();
+
+    /**
+     * Sets the value of the NRCellGlobalId property.
+     *
+     * @param eUTRANCellGlobalId
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public abstract void setNRCellGlobalId(String eUTRANCellGlobalId);
 
     /**
      * Gets the value of the eUTRANCellGlobalId property.
@@ -114,44 +114,44 @@ public interface EPSLocationInformation {
     public abstract void setGeographicalInformation(String geographicalInformation);
 
     /**
-     * Gets the value of the geodeticInformation property.
+     * Gets the value of the amfAddress property.
      *
      * @return
      *     possible object is
      *     {@link String }
      *
      */
-    public abstract String getGeodeticInformation();
+    public abstract String getAMFAddress();
 
     /**
-     * Sets the value of the geodeticInformation property.
+     * Sets the value of the amfAddress property.
      *
-     * @param geodeticInformation
+     * @param amfAddress
      *     allowed object is
      *     {@link String }
      *
      */
-    public abstract void setGeodeticInformation(String geodeticInformation);
+    public abstract void setAMFAddress(String amfAddress);
 
     /**
-     * Gets the value of the mmeName property.
+     * Gets the value of the smsfAddress property.
      *
      * @return
      *     possible object is
      *     {@link String }
      *
      */
-    public abstract String getMMEName();
+    public abstract String getSMSFAddress();
 
     /**
-     * Sets the value of the mmeName property.
+     * Sets the value of the smsfAddress property.
      *
-     * @param mmeName
+     * @param smsfAddress
      *     allowed object is
      *     {@link String }
      *
      */
-    public abstract void setMMEName(String mmeName);
+    public abstract void setSMSFAddress(String smsfAddress);
 
     /**
      * Gets the value of the currentLocationRetrieved property.
@@ -194,44 +194,84 @@ public interface EPSLocationInformation {
     public abstract void setAgeOfLocationInformation(Integer value);
 
     /**
-     * Gets the value of the userCSGInformation property.
+     * Gets the value of the visitedPLMNID property.
      *
      * @return
      *     possible object is
-     *     {@link TUserCSGInformation }
+     *     {@link Integer }
      *
      */
-    public abstract UserCSGInformation getUserCSGInformation();
+    public abstract Integer getVisitedPLMNID();
 
     /**
-     * Sets the value of the userCSGInformation property.
+     * Sets the value of the localTimeZone property.
      *
-     * @param userCSGInformation
+     * @param visitedPLMNID
      *     allowed object is
-     *     {@link TUserCSGInformation }
+     *     {@link Integer }
      *
      */
-    public abstract void setUserCSGInformation(UserCSGInformation userCSGInformation);
+    public abstract void setVisitedPLMNID(Integer visitedPLMNID);
+
+    /**
+     * Gets the value of the localTimeZone property.
+     *
+     * @return
+     *     possible object is
+     *     {@link LocalTimeZone }
+     *
+     */
+    public abstract LocalTimeZone getLocalTimeZone();
+
+    /**
+     * Sets the value of the localTimeZone property.
+     *
+     * @param localTimeZone
+     *     allowed object is
+     *     {@link LocalTimeZone }
+     *
+     */
+    public abstract void setLocalTimeZone(LocalTimeZone localTimeZone);
+
+    /**
+     * Gets the value of the ratType property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *
+     */
+    public abstract Integer getRATtype();
+
+    /**
+     * Sets the value of the ratType property.
+     *
+     * @param ratType
+     *     allowed object is
+     *     {@link Integer }
+     *
+     */
+    public abstract void setRATtype(Integer ratType);
 
     /**
      * Gets the value of the extension property.
      *
      * @return
      *     possible object is
-     *     {@link TEPSLocationInformationExtension }
+     *     {@link TExtension }
      *
      */
-    public abstract EPSLocationInformationExtension getExtension();
+    public abstract Extension getExtension();
 
     /**
      * Sets the value of the extension property.
      *
      * @param value
      *     allowed object is
-     *     {@link TEPSLocationInformationExtension }
+     *     {@link TExtension }
      *
      */
-    public abstract void setExtension(EPSLocationInformationExtension value);
+    public abstract void setExtension(Extension value);
 
     /**
      * Gets the value of the any property.
@@ -257,5 +297,4 @@ public interface EPSLocationInformation {
      *
      */
     public abstract List<Object> getAny();
-
 }

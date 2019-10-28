@@ -157,13 +157,28 @@ public class UserDataAvpValidationTest {
 				"\t\t<GeographicalInformation>EBu2ELlt9wA=</GeographicalInformation>\n" +
 				"\t\t<GeodeticInformation>AxCiJcdOOq8ZAQ==</GeodeticInformation>\n" +
 				"\t\t<VLRNumber>\n" +
-				"\t\t\t<Address>59897901234</Address>\n" +
+				"\t\t\t<Address>NTk4OTc4OTM1==</Address>\n" +
 				"\t\t</VLRNumber>\n" +
 				"\t\t<MSCNumber>\n" +
-				"\t\t\t<Address>59897901234</Address>\n" +
+				"\t\t\t<Address>NTk4OTc4OTM0==</Address>\n" +
 				"\t\t</MSCNumber>\n" +
-				"\t\t<CurrentLocationRetrieved>true</CurrentLocationRetrieved>\n" +
+				"\t\t<CurrentLocationRetrieved>0</CurrentLocationRetrieved>\n" +
 				"\t\t<AgeOfLocationInformation>0</AgeOfLocationInformation>\n" +
+				"\t\t<Extension>\n" +
+				"\t\t\t<UserCSGInformation>\n" +
+				"\t\t\t\t<CSGId>ODE5MQ==</CSGId>\n" +
+				"\t\t\t</UserCSGInformation>\n" +
+				"\t\t\t<Extension>\n" +
+				"\t\t\t\t<E-UTRANCellGlobalId>BfKRAk4nFQ==</E-UTRANCellGlobalId>\n" +
+				"\t\t\t\t<TrackingAreaId>BfKRAwY=</TrackingAreaId>\n" +
+				"\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t<LocalTimeZone>" +
+				"\t\t\t\t\t\t<TimeZone>-3</TimeZone>\n" +
+				"\t\t\t\t\t\t<DaylightSavingTime>0</DaylightSavingTime>\n" +
+				"\t\t\t\t\t</LocalTimeZone>\n" +
+				"\t\t\t\t</Extension>\n" +
+				"\t\t\t</Extension>\n" +
+				"\t\t</Extension>\n" +
 				"\t</CSLocationInformation>\n" +
 				"\t<PSLocationInformation>\n" +
 				"\t\t<CellGlobalId>NzIBAAFOSg==</CellGlobalId>\n" +
@@ -171,27 +186,75 @@ public class UserDataAvpValidationTest {
 				"\t\t<GeographicalInformation>EKEgAU402RI=</GeographicalInformation>\n" +
 				"\t\t<GeodeticInformation>AxCiJcdOOq8ZAP==</GeodeticInformation>\n" +
 				"\t\t<SGSNNumber>\n" +
-				"\t\t\t<Address>59897904322</Address>\n" +
+				"\t\t\t<Address>NTk4OTc4OTM2==</Address>\n" +
 				"\t\t</SGSNNumber>\n" +
-				"\t\t<CurrentLocationRetrieved>false</CurrentLocationRetrieved>\n" +
+				"\t\t<CurrentLocationRetrieved>1</CurrentLocationRetrieved>\n" +
 				"\t\t<AgeOfLocationInformation>5</AgeOfLocationInformation>\n" +
+				"\t\t<Extension>\n" +
+				"\t\t\t<UserCSGInformation>\n" +
+				"\t\t\t\t<CSGId>ODE5MQ==</CSGId>\n" +
+				"\t\t\t</UserCSGInformation>\n" +
+				"\t\t\t<Extension>\n" +
+				"\t\t\t\t<VisitedPLMNID>BfKRA=</VisitedPLMNID>\n" +
+				"\t\t\t\t<LocalTimeZone>" +
+				"\t\t\t\t\t<TimeZone>-3</TimeZone>\n" +
+				"\t\t\t\t\t<DaylightSavingTime>0</DaylightSavingTime>\n" +
+				"\t\t\t\t</LocalTimeZone>\n" +
+				"\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t<RATtype>1004</RATtype>\n" +
+				"\t\t\t\t</Extension>\n" +
+				"\t\t\t</Extension>\n" +
+				"\t\t</Extension>\n" +
 				"\t</PSLocationInformation>\n" +
 				"\t<Extension>\n" +
 				"\t\t<Extension>\n" +
 				"\t\t\t<Extension>\n" +
 				"\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t<EPSUserState>4</EPSUserState>\n" +
 				"\t\t\t\t\t<EPSLocationInformation>\n" +
-				"\t\t\t\t\t\t<E-UTRANCellGlobalId>NzIBAAFOSg==</E-UTRANCellGlobalId>\n" +
-				"\t\t\t\t\t\t<TrackingAreaId>NzIBOTU=</TrackingAreaId>\n" +
+				"\t\t\t\t\t\t<E-UTRANCellGlobalId>BfKRAk4nFQ==</E-UTRANCellGlobalId>\n" +
+				"\t\t\t\t\t\t<TrackingAreaId>BfKRAwY=</TrackingAreaId>\n" +
 				"\t\t\t\t\t\t<GeographicalInformation>EKEgAU402RI=</GeographicalInformation>\n" +
 				"\t\t\t\t\t\t<GeodeticInformation>AxCiJcdOOq8ZAP==</GeodeticInformation>\n" +
-				"\t\t\t\t\t\t<MMEName>mme742@be-connect.us</MMEName>\n" +
-				"\t\t\t\t\t\t<CurrentLocationRetrieved>true</CurrentLocationRetrieved>\n" +
-				"\t\t\t\t\t\t<AgeOfLocationInformation>1</AgeOfLocationInformation>\n" +
+				"\t\t\t\t\t\t<MMEName>MMEC18.MMEGI8001.MME.EPC.MNC019.MCC502.3GPPNETWORK.ORG</MMEName>\n" +
+				"\t\t\t\t\t\t<CurrentLocationRetrieved>0</CurrentLocationRetrieved>\n" +
+				"\t\t\t\t\t\t<AgeOfLocationInformation>0</AgeOfLocationInformation>\n" +
 				"\t\t\t\t\t\t<UserCSGInformation>\n" +
 				"\t\t\t\t\t\t\t<CSGId>ODE5MQ==</CSGId>\n" +
 				"\t\t\t\t\t\t</UserCSGInformation>\n" +
+				"\t\t\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t\t\t<VisitedPLMNID>951800</VisitedPLMNID>\n" +
+				"\t\t\t\t\t\t\t<LocalTimeZone>" +
+				"\t\t\t\t\t\t\t\t<TimeZone>-3</TimeZone>\n" +
+				"\t\t\t\t\t\t\t\t<DaylightSavingTime>0</DaylightSavingTime>\n" +
+				"\t\t\t\t\t\t\t</LocalTimeZone>\n" +
+				"\t\t\t\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t\t\t\t<RATtype>1004</RATtype>\n" +
+				"\t\t\t\t\t\t\t</Extension>\n" +
+				"\t\t\t\t\t\t</Extension>\n" +
 				"\t\t\t\t\t</EPSLocationInformation>\n" +
+				"\t\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t\t\t<Extension>\n" +
+				"\t\t\t\t\t\t\t\t<Sh-5GSLocationInformation>\n" +
+				"\t\t\t\t\t\t\t\t\t<NRCellGlobalId>95180077395570</NRCellGlobalId>\n" +
+				"\t\t\t\t\t\t\t\t\t<E-UTRANCellGlobalId>BfKRAk4nFQ==</E-UTRANCellGlobalId>\n" +
+				"\t\t\t\t\t\t\t\t\t<TrackingAreaId>BfKRAwY=</TrackingAreaId>\n" +
+				"\t\t\t\t\t\t\t\t\t<GeographicalInformation>EKEgAU402RI=</GeographicalInformation>\n" +
+				"\t\t\t\t\t\t\t\t\t<AMFAddress>amf1.cluster1.net2.amf.5gc.mnc012.mcc345.3gppnetwork.org</AMFAddress>\n" +
+				"\t\t\t\t\t\t\t\t\t<SMSFAddress>set12. smfset.5gc.mnc012.mcc345.3gppnetwork.org</SMSFAddress>\n" +
+				"\t\t\t\t\t\t\t\t\t<CurrentLocationRetrieved>0</CurrentLocationRetrieved>\n" +
+				"\t\t\t\t\t\t\t\t\t<AgeOfLocationInformation>0</AgeOfLocationInformation>\n" +
+				"\t\t\t\t\t\t\t\t\t<VisitedPLMNID>951810</VisitedPLMNID>\n" +
+				"\t\t\t\t\t\t\t\t\t<LocalTimeZone>" +
+				"\t\t\t\t\t\t\t\t\t\t<TimeZone>-3</TimeZone>\n" +
+				"\t\t\t\t\t\t\t\t\t\t<DaylightSavingTime>0</DaylightSavingTime>\n" +
+				"\t\t\t\t\t\t\t\t\t</LocalTimeZone>\n" +
+				"\t\t\t\t\t\t\t\t\t<RATtype>1006</RATtype>\n" +
+				"\t\t\t\t\t\t\t\t</Sh-5GSLocationInformation>\n" +
+				"\t\t\t\t\t\t\t</Extension>\n" +
+				"\t\t\t\t\t\t</Extension>\n" +
+				"\t\t\t\t\t</Extension>\n" +
 				"\t\t\t\t</Extension>\n" +
 				"\t\t\t</Extension>\n" +
 				"\t\t</Extension>\n" +

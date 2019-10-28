@@ -53,8 +53,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "tEPSLocationInformationExtension2", propOrder = {
     "ratType",
-    "extension",
-    "any"
+    "extension"
 })
 public class TEPSLocationInformationExtension2 implements EPSLocationInformationExtension2 {
 

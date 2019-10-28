@@ -372,7 +372,8 @@
 	</xs:simpleType>
 	<xs:simpleType name="tNRCellGlobalId" final="list restriction">
 		<xs:restriction base="xs:string">
-			<xs:length value="9"/>
+			<xs:minLength value="14"/>
+			<xs:maxLength value="15"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="tTrackingAreaId" final="list restriction">
@@ -605,6 +606,26 @@
 					<definition xml:lang="en"> See subclause 5.3.31 in 3GPP TS 29.212 </definition>
 				</xs:documentation>
 			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tAccessType" final="restriction list">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="1"/>
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>
+						<label xml:lang="en">3GPP-ACCESS</label>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>
+						<label xml:lang="en">NON-3GPP-ACCESS</label>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="tCSGId" final="list restriction">
@@ -930,10 +951,18 @@
 	<xs:complexType name="tTADSinformationExtension">
 		<xs:sequence>
 			<xs:element name="LastUEActivityTime" type="tDateTime" minOccurs="0"/>
+			<xs:element name="Extension" type="tTADSinformationExtension2" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tTADSinformationExtension2">
+		<xs:sequence>
+			<xs:element name="AccessType" type="tAccessType" minOccurs="0"/>
 			<xs:element name="Extension" type="tExtension" minOccurs="0"/>
 			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+
 	<xs:complexType name="tSh-Data-Extension4">
 		<xs:sequence>
 			<xs:element name="EPSUserState" type="tPSUserState" minOccurs="0"/>
@@ -954,14 +983,14 @@
 	<xs:complexType name="tSh-Data-Extension6">
 		<xs:sequence>
 			<xs:element name="IMEISV" type="tString" minOccurs="0"/>
-			<!--<xs:element name="Extension" type="Sh-Data-Extension7" minOccurs="0"/>-->
+			<xs:element name="Extension" type="tSh-Data-Extension7" minOccurs="0"/>
 			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tSh-Data-Extension7">
 		<xs:sequence>
-			<!--<xs:element name="5GSLocationInformation" type="t5GSLocationInformation" minOccurs="0"/>
-			<xs:element name="5GSUserState" type="tPSUserState" minOccurs="0"/>-->
+			<xs:element name="Sh-5GSLocationInformation" type="tSh-5GSLocationInformation" minOccurs="0"/>
+			<xs:element name="Sh-5GSUserState" type="tPSUserState" minOccurs="0"/>
 			<xs:element name="Extension" type="tExtension" minOccurs="0"/>
 			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -1116,13 +1145,14 @@
 			<xs:element name="Extension" type="tExtension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="t5GSLocationInformation">
+	<xs:complexType name="tSh-5GSLocationInformation">
 		<xs:sequence>
 			<xs:element name="NRCellGlobalId" type="tNRCellGlobalId" minOccurs="0"/>
 			<xs:element name="E-UTRANCellGlobalId" type="tE-UTRANCellGlobalId" minOccurs="0"/>
 			<xs:element name="TrackingAreaId" type="tTrackingAreaId" minOccurs="0"/>
 			<xs:element name="GeographicalInformation" type="tGeographicalInformation" minOccurs="0"/>
 			<xs:element name="AMFAddress" type="tString" minOccurs="0"/>
+			<xs:element name="SMSFAddress" type="tString" minOccurs="0"/>
 			<xs:element name="CurrentLocationRetrieved" type="tBool" minOccurs="0"/>
 			<xs:element name="AgeOfLocationInformation" type="tAgeOfLocationInformation" minOccurs="0"/>
 			<xs:element name="VisitedPLMNID" type="tVisitedPLMNID" minOccurs="0"/>
