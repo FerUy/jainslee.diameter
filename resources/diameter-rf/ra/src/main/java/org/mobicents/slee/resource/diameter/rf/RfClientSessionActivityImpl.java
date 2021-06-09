@@ -50,7 +50,7 @@ import org.mobicents.slee.resource.diameter.base.events.DiameterMessageImpl;
  */
 public class RfClientSessionActivityImpl extends RfSessionActivityImpl implements RfClientSessionActivity {
 
-  private static final long serialVersionUID = -896041231173969408L;
+  private static final long serialVersionUID = 1L;
 
   protected transient ClientRfSession clientSession = null;
 

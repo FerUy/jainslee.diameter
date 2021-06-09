@@ -41,7 +41,7 @@ import org.mobicents.slee.resource.diameter.sh.events.avp.SupportedFeaturesAvpIm
  */
 public class DiameterShMessageImpl extends DiameterMessageImpl implements DiameterShMessage {
 
-  private static final long serialVersionUID = -4044514560899824511L;
+  private static final long serialVersionUID = 1L;
 
   protected String longMessageName = null;
   protected String shortMessageName = null;

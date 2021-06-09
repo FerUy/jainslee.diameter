@@ -52,7 +52,7 @@ import org.mobicents.slee.resource.diameter.sh.events.avp.userdata.UserDataObjec
  */
 public class PushNotificationRequestImpl extends DiameterShMessageImpl implements PushNotificationRequest {
 
-  private static final long serialVersionUID = 3454964740059530884L;
+  private static final long serialVersionUID = 1L;
 
   private static JAXBContext jaxbContext = initJAXBContext();
   private static UserDataObjectFactory udof = new UserDataObjectFactoryImpl(new ObjectFactory());

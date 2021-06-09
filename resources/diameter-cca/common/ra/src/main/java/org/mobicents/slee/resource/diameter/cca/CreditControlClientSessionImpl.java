@@ -54,7 +54,7 @@ import org.mobicents.slee.resource.diameter.base.events.DiameterMessageImpl;
  */
 public class CreditControlClientSessionImpl extends CreditControlSessionImpl implements CreditControlClientSession {
 
-  private static final long serialVersionUID = -391269379875938636L;
+  private static final long serialVersionUID = 1L;
 
   protected transient ClientCCASession session = null;
 

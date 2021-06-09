@@ -55,7 +55,7 @@ import org.mobicents.slee.resource.diameter.base.events.DiameterMessageImpl;
  */
 public class SLgServerSessionActivityImpl extends SLgSessionActivityImpl implements SLgServerSessionActivity {
 
-  private static final long serialVersionUID = 7518916596996009148L;
+  private static final long serialVersionUID = 1L;
 
   protected transient ServerSLgSession serverSLgSession;
 

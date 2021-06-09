@@ -44,7 +44,7 @@ import org.mobicents.slee.resource.diameter.sh.events.avp.UserIdentityAvpImpl;
  */
 public class UserDataRequestImpl extends DiameterShMessageImpl implements UserDataRequest {
 
-  private static final long serialVersionUID = 8420851563858038672L;
+  private static final long serialVersionUID = 1L;
 
   /**
    * @param msg
