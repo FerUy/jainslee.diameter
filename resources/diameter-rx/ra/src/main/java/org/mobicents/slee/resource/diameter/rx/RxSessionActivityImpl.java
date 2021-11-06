@@ -53,7 +53,7 @@ import org.mobicents.slee.resource.diameter.rx.events.*;
  */
 public abstract class RxSessionActivityImpl extends DiameterActivityImpl implements RxSessionActivity {
 
-  private static final long serialVersionUID = 5037967180962414549L;
+  private static final long serialVersionUID = 1L;
 
   protected transient RxMessageFactory rxMessageFactory;
 

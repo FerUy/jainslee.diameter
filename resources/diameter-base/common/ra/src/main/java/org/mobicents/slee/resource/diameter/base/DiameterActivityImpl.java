@@ -67,7 +67,7 @@ import org.mobicents.slee.resource.diameter.base.handlers.DiameterRAInterface;
  */
 public class DiameterActivityImpl implements DiameterActivity {
 
-  private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = -1065881101052214841L;
 
   protected static Logger logger = Logger.getLogger(DiameterActivityImpl.class);
 

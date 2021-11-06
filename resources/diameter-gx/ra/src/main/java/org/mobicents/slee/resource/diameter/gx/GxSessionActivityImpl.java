@@ -47,7 +47,7 @@ import org.mobicents.slee.resource.diameter.gx.events.GxReAuthRequestImpl;
  */
 public abstract class GxSessionActivityImpl extends DiameterActivityImpl implements GxSessionActivity {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 5037967180962414549L;
 
     protected transient GxMessageFactory gxMessageFactory;
     protected transient GxAvpFactory gxAvpFactory;

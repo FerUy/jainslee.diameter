@@ -56,7 +56,7 @@ import org.mobicents.slee.resource.diameter.base.events.DiameterMessageImpl;
  */
 public class AuthServerSessionActivityImpl extends AuthSessionActivityImpl implements AuthServerSessionActivity {
 
-  private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = -3695874024822124799L;
 
   protected transient ServerAuthSession serverSession = null;
 

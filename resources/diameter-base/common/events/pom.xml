@@ -4,18 +4,49 @@
 	<parent>
 		<groupId>org.mobicents.resources</groupId>
 		<artifactId>restcomm-slee-ra-diameter-base-common</artifactId>
-		<version>7.0.0-SNAPSHOT</version>
+		<version>7.2.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>restcomm-slee-ra-diameter-base-common-events</artifactId>
 
-	<name>Restcomm :: Diameter Resources :: ${pom.artifactId}</name>
+	<name>Restcomm :: Diameter Resources :: ${project.artifactId}</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.mobicents.diameter</groupId>
 			<artifactId>restcomm-diameter-mux-jar</artifactId>
 			<version>${restcomm.diameter.mux.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mobicents.diameter</groupId>
+			<artifactId>jdiameter-api</artifactId>
+			<version>${restcomm.diameter.jdiameter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mobicents.diameter</groupId>
+			<artifactId>jdiameter-impl</artifactId>
+			<version>${restcomm.diameter.jdiameter.version}</version>
+		</dependency>
+		<!-- Jdk 11 compatibility  -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.3</version>
 		</dependency>
 	</dependencies>
 </project>
